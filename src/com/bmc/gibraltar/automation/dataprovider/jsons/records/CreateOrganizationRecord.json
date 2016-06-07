@@ -1,0 +1,46 @@
+{
+  "recordDefinitionName": "Organization",
+  "permittedGroupsBySecurityLabels": {
+    "Assignee Group": [
+      "CokeHR"
+    ]
+  },
+  "permittedUsersBySecurityLabels": null,
+  "fieldInstances": {
+    "2": {
+      "resourceType": "com.bmc.arsys.rx.services.record.domain.FieldInstance",
+      "id": 2,
+      "value": "jonnie"
+    },
+    "7": {
+      "resourceType": "com.bmc.arsys.rx.services.record.domain.FieldInstance",
+      "id": 7,
+      "value": "0"
+    },
+    "8": {
+      "resourceType": "com.bmc.arsys.rx.services.record.domain.FieldInstance",
+      "id": 8,
+      "value": "HR Organization for Coke tenant"
+    },
+    "105": {
+      "resourceType": "com.bmc.arsys.rx.services.record.domain.FieldInstance",
+      "id": 105,
+      "value": "CokeHR"
+    },
+    "301138500": {
+      "resourceType": "com.bmc.arsys.rx.services.record.domain.FieldInstance",
+      "id": 301138500,
+      "value": "cokehr.com"
+    },
+    "304405391": {
+      "resourceType": "com.bmc.arsys.rx.services.record.domain.FieldInstance",
+      "id": 304405391,
+      "value": "HR"
+    },
+    "304406061": {
+      "resourceType": "com.bmc.arsys.rx.services.record.domain.FieldInstance",
+      "id": 304406061,
+      "value": "1"
+    }
+  }
+}

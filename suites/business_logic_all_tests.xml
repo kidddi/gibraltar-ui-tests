@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Business Logic Task Manager UI tests" configfailurepolicy="continue">
+    <listeners>
+        <listener class-name="com.bmc.gibraltar.automation.framework.listeners.CustomTestListener"/>
+    </listeners>
+
+    <test name="Element Tests" verbose="10">
+        <packages>
+            <package name="com.bmc.gibraltar.automation.tests.businesslogic.ui.element"/>
+        </packages>
+    </test>
+
+    <test name="Process Definitions Tests" verbose="10">
+        <packages>
+            <package name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.definition"/>
+        </packages>
+    </test>
+
+    <test name="Process Designer Tests" verbose="10">
+        <packages>
+            <package name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.designer"/>
+        </packages>
+    </test>
+
+    <test name="Process Instance Tests" verbose="10">
+        <packages>
+            <package name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.instance"/>
+        </packages>
+    </test>
+
+    <test name="Record Designer Tests" verbose="10">
+        <packages>
+            <package name="com.bmc.gibraltar.automation.tests.businesslogic.ui.recorddesigner"/>
+        </packages>
+    </test>
+
+    <test name="Permissions Tests" verbose="10">
+        <packages>
+            <package name="com.bmc.gibraltar.automation.tests.businesslogic.ui.permissions"/>
+        </packages>
+    </test>
+
+    <test name="Rule Designer Tests" verbose="10">
+        <packages>
+            <package name="com.bmc.gibraltar.automation.tests.businesslogic.ui.rule"/>
+        </packages>
+    </test>
+
+</suite>

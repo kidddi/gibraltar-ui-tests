@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Alex Debug Suite" configfailurepolicy="continue">
+    <listeners>
+        <listener class-name="com.bmc.gibraltar.automation.framework.listeners.CustomTestListener"/>
+    </listeners>
+    <test name="App Dev Smoke Tests" parallel="false" verbose="2">
+        <classes>
+            <class name="com.bmc.gibraltar.automation.tests.appdev.ui.RecordDefinitionsTests">
+                <methods>
+                    <!--<include name="viewDefinitionNameInHeader"/>-->
+                    <!--<include name="presenceDeployedComponents"/>-->
+                    <!--<include name="validateGroupsComponents"/>-->
+                    <!--<include name="basicComponentsPresence"/>-->
+                    <!--<include name="demoComponentsPresence"/>-->
+                    <!--<include name="componentOnPaletteSortedAlphabetically"/>-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

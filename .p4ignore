@@ -1,0 +1,9 @@
+### Gibraltar specific
+screenshots/
+
+### JetBrains
+*.iml
+.idea/
+
+### Maven
+target/

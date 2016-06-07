@@ -1,0 +1,13 @@
+{
+  "name": "UniqueNameShouldBeChanged",
+  "owner": "Demo",
+  "description": "This is test form",
+  "fieldDefinitions": [
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "id": 536870913,
+      "name": "testfield",
+      "maxLength": "0"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "name": "task-manager:NotificationProcess1516d405934",
+  "id": "rx-789e884d-3d38-4737-b7b5-2af824baebea",
+  "description": "",
+  "runAsUser": false,
+  "isEnabled": true,
+  "inputParams": [],
+  "outputParams": [],
+  "flowElements": [
+    {
+      "id": "rx-62bec0c4-db9e-4b17-9c93-905e036ef294",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.StartEventDefinition",
+      "name": "Start",
+      "description": ""
+    },
+    {
+      "id": "rx-d84d9806-a29a-424f-86d3-169b05badf49",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.EndEventDefinition",
+      "name": "End",
+      "description": ""
+    },
+    {
+      "id": "rx-d9640f1f-0f5f-414f-948f-ee62a49df9f4",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.ProcessActionDefinition",
+      "name": "Create Record Instance",
+      "description": "",
+      "runAsUser": null,
+      "actionTypeName": "createRecordInstance",
+      "inputMap": [
+        {
+          "assignTarget": "recordDefinitionName",
+          "expression": "\"task-manager:Task\""
+        },
+        {
+          "assignTarget": "values[\"Priority\"]",
+          "expression": "\"Medium\""
+        },
+        {
+          "assignTarget": "values[\"Assigned To\"]",
+          "expression": "$USER$"
+        },
+        {
+          "assignTarget": "values[\"Notes\"]",
+          "expression": "\"some notes\""
+        },
+        {
+          "assignTarget": "values[\"Status\"]",
+          "expression": "\"Work In Progress\""
+        },
+        {
+          "assignTarget": "values[\"Submitter\"]",
+          "expression": "$USER$"
+        },
+        {
+          "assignTarget": "values[\"Task Name\"]",
+          "expression": "\"TaskName\""
+        }
+      ],
+      "outputMap": [],
+      "multiInstanceLoopDefinition": null
+    },
+    {
+      "id": "rx-59f125e5-4e76-4133-9c4a-d7c21efc2875",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.ProcessActionDefinition",
+      "name": "Send Message",
+      "description": "",
+      "runAsUser": null,
+      "actionTypeName": "sendUserMessage",
+      "inputMap": [
+        {
+          "assignTarget": "subject",
+          "expression": "\"Notification\""
+        },
+        {
+          "assignTarget": "body",
+          "expression": "\"You have been assigned the task. Please do the needful.\""
+        },
+        {
+          "assignTarget": "recipients",
+          "expression": "$USER$"
+        }
+      ],
+      "outputMap": [],
+      "multiInstanceLoopDefinition": null
+    },
+    {
+      "id": "rx-b842c669-8589-4a0f-84ef-e77fc28b355b",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.ProcessActionDefinition",
+      "name": "Update Record Instance",
+      "description": "",
+      "runAsUser": null,
+      "actionTypeName": "updateRecordInstance",
+      "inputMap": [
+        {
+          "assignTarget": "recordDefinitionName",
+          "expression": "\"task-manager:Task\""
+        },
+        {
+          "assignTarget": "recordInstanceId",
+          "expression": "${activityResults.rx-d9640f1f-0f5f-414f-948f-ee62a49df9f4.id}"
+        },
+        {
+          "assignTarget": "values[\"Status\"]",
+          "expression": "\"Completed\""
+        }
+      ],
+      "outputMap": [],
+      "multiInstanceLoopDefinition": null
+    },
+    {
+      "id": "rx-9aa6ba72-445e-4283-a140-7ea2b84c1ac6",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.SequenceFlowDefinition",
+      "name": "Sequence Flow",
+      "description": "",
+      "sourceNode": "rx-62bec0c4-db9e-4b17-9c93-905e036ef294",
+      "targetNode": "rx-d9640f1f-0f5f-414f-948f-ee62a49df9f4"
+    },
+    {
+      "id": "rx-c94794f7-46c5-4c9b-98e9-7aabcd613e76",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.SequenceFlowDefinition",
+      "name": "Sequence Flow",
+      "description": "",
+      "sourceNode": "rx-d9640f1f-0f5f-414f-948f-ee62a49df9f4",
+      "targetNode": "rx-59f125e5-4e76-4133-9c4a-d7c21efc2875"
+    },
+    {
+      "id": "rx-a528d843-6881-47c6-b030-c5271983f554",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.SequenceFlowDefinition",
+      "name": "Sequence Flow",
+      "description": "",
+      "sourceNode": "rx-59f125e5-4e76-4133-9c4a-d7c21efc2875",
+      "targetNode": "rx-b842c669-8589-4a0f-84ef-e77fc28b355b"
+    },
+    {
+      "id": "rx-ff567962-501b-49da-ba77-88842ec4de04",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.SequenceFlowDefinition",
+      "name": "Sequence Flow",
+      "description": "",
+      "sourceNode": "rx-b842c669-8589-4a0f-84ef-e77fc28b355b",
+      "targetNode": "rx-d84d9806-a29a-424f-86d3-169b05badf49"
+    }
+  ],
+  "artifacts": [],
+  "layout": "{\"cells\":[{\"type\":\"rx.ProcessAction\",\"size\":{\"width\":70,\"height\":60},\"icon\":\"gear\",\"activityType\":\"task\",\"subProcess\":null,\"content\":\"Update Record Instance\",\"position\":{\"x\":440,\"y\":500},\"angle\":0,\"id\":\"b842c669-8589-4a0f-84ef-e77fc28b355b\",\"z\":18,\"ownerProcessId\":\"rx-789e884d-3d38-4737-b7b5-2af824baebea\",\"attrs\":{\".icon\":{\"ref\":\".outer\",\"ref-dy\":\"\",\"ref-y\":5,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMdJREFUeNpiYCATMOKSMDY2/g9lGp49e/YCujwLkkIDILUeiBOB2ABJTQBQTgBIzwfiRqAhC1BsBEreB1IKBFz4AKhREcRgQhIMRFcExcggEcZgQnJmALICkMlQ0xORxB2gaiFORQoIELgA1GCIFlDnkf0NlGdkwuKPC8SIMcFMAFKFSKFogBbaMG8UQtUiogMIDkBpUNDvB2pYAOUnQMVQbEbWuB6JDVJYgMXJoLjEGh2g4DdEcjYINAKxI1QukOIkRzYACDAA4gE868wlT0MAAAAASUVORK5CYII=\"},\".inner\":{\"visibility\":\"hidden\"},\"text\":{\"ref-y\":0.5},\".fobj\":{\"width\":70,\"height\":60},\"div\":{\"style\":{\"width\":70,\"height\":60},\"html\":\"Update Record Instance\"},\".fobj div\":{\"style\":{\"verticalAlign\":\"middle\",\"paddingTop\":0}},\".outer\":{\"stroke-width\":1,\"stroke-dasharray\":\"none\"},\".sub-process\":{\"d\":\"M 0 0 L 30 0 30 30 0 30 z M 15 4 L 15 26 M 4 15 L 26 15\",\"stroke\":\"#000000\",\"fill\":\"transparent\",\"transform\":\"scale(0.3, 0.3) translate(0, 6)\",\"display\":\"none\",\"visibility\":\"hidden\",\"data-sub-process\":\"\"},\".icon-multi-instance-sequential\":{\"width\":10,\"height\":10,\"y\":1,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACtJREFUeNpilJOTYaAEsADxf0oMYGKgEFBsAMgLjEPfC6OxMBoLFBsAEGAAje8DgZ8/t18AAAAASUVORK5CYII=\",\"display\":\"none\"},\".icon-multi-instance-parallel\":{\"width\":10,\"height\":10,\"y\":1,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACxJREFUeNpilJOT+c+AAIwPHz5mkJeXBbGJEmdioBCMGjBqwKgBg8UAgAADADERCXj6SL6VAAAAAElFTkSuQmCC\",\"display\":\"none\"},\".rx-icon-container\":{\"ref\":\".body\",\"x-alignment\":\"middle\",\"ref-x\":0.5,\"ref-dy\":-15}}},{\"type\":\"rx.ProcessAction\",\"size\":{\"width\":70,\"height\":60},\"icon\":\"gear\",\"activityType\":\"task\",\"subProcess\":null,\"content\":\"Send Message\",\"position\":{\"x\":290,\"y\":400},\"angle\":0,\"id\":\"59f125e5-4e76-4133-9c4a-d7c21efc2875\",\"z\":32,\"ownerProcessId\":\"rx-789e884d-3d38-4737-b7b5-2af824baebea\",\"attrs\":{\".icon\":{\"ref\":\".outer\",\"ref-dy\":\"\",\"ref-y\":5,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMdJREFUeNpiYCATMOKSMDY2/g9lGp49e/YCujwLkkIDILUeiBOB2ABJTQBQTgBIzwfiRqAhC1BsBEreB1IKBFz4AKhREcRgQhIMRFcExcggEcZgQnJmALICkMlQ0xORxB2gaiFORQoIELgA1GCIFlDnkf0NlGdkwuKPC8SIMcFMAFKFSKFogBbaMG8UQtUiogMIDkBpUNDvB2pYAOUnQMVQbEbWuB6JDVJYgMXJoLjEGh2g4DdEcjYINAKxI1QukOIkRzYACDAA4gE868wlT0MAAAAASUVORK5CYII=\"},\".inner\":{\"visibility\":\"hidden\"},\"text\":{\"ref-y\":0.5},\".fobj\":{\"width\":70,\"height\":60},\"div\":{\"style\":{\"width\":70,\"height\":60},\"html\":\"Send Message\"},\".fobj div\":{\"style\":{\"verticalAlign\":\"middle\",\"paddingTop\":0}},\".outer\":{\"stroke-width\":1,\"stroke-dasharray\":\"none\"},\".sub-process\":{\"d\":\"M 0 0 L 30 0 30 30 0 30 z M 15 4 L 15 26 M 4 15 L 26 15\",\"stroke\":\"#000000\",\"fill\":\"transparent\",\"transform\":\"scale(0.3, 0.3) translate(0, 6)\",\"display\":\"none\",\"visibility\":\"hidden\",\"data-sub-process\":\"\"},\".icon-multi-instance-sequential\":{\"width\":10,\"height\":10,\"y\":1,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACtJREFUeNpilJOTYaAEsADxf0oMYGKgEFBsAMgLjEPfC6OxMBoLFBsAEGAAje8DgZ8/t18AAAAASUVORK5CYII=\",\"display\":\"none\"},\".icon-multi-instance-parallel\":{\"width\":10,\"height\":10,\"y\":1,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACxJREFUeNpilJOT+c+AAIwPHz5mkJeXBbGJEmdioBCMGjBqwKgBg8UAgAADADERCXj6SL6VAAAAAElFTkSuQmCC\",\"display\":\"none\"},\".rx-icon-container\":{\"ref\":\".body\",\"x-alignment\":\"middle\",\"ref-x\":0.5,\"ref-dy\":-15}}},{\"type\":\"rx.SequenceFlow\",\"router\":{\"name\":\"manhattan\"},\"labels\":[{\"attrs\":{\"text\":{\"text\":\"\"}},\"position\":\"0.5\"}],\"flowType\":\"normal\",\"id\":\"a528d843-6881-47c6-b030-c5271983f554\",\"source\":{\"id\":\"59f125e5-4e76-4133-9c4a-d7c21efc2875\"},\"target\":{\"id\":\"b842c669-8589-4a0f-84ef-e77fc28b355b\"},\"z\":33,\"ownerProcessId\":\"rx-789e884d-3d38-4737-b7b5-2af824baebea\",\"attrs\":{}},{\"type\":\"rx.ProcessAction\",\"size\":{\"width\":70,\"height\":60},\"icon\":\"gear\",\"activityType\":\"task\",\"subProcess\":null,\"content\":\"Create Record Instance\",\"position\":{\"x\":170,\"y\":315},\"angle\":0,\"id\":\"d9640f1f-0f5f-414f-948f-ee62a49df9f4\",\"z\":35,\"ownerProcessId\":\"rx-789e884d-3d38-4737-b7b5-2af824baebea\",\"attrs\":{\".icon\":{\"ref\":\".outer\",\"ref-dy\":\"\",\"ref-y\":5,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMdJREFUeNpiYCATMOKSMDY2/g9lGp49e/YCujwLkkIDILUeiBOB2ABJTQBQTgBIzwfiRqAhC1BsBEreB1IKBFz4AKhREcRgQhIMRFcExcggEcZgQnJmALICkMlQ0xORxB2gaiFORQoIELgA1GCIFlDnkf0NlGdkwuKPC8SIMcFMAFKFSKFogBbaMG8UQtUiogMIDkBpUNDvB2pYAOUnQMVQbEbWuB6JDVJYgMXJoLjEGh2g4DdEcjYINAKxI1QukOIkRzYACDAA4gE868wlT0MAAAAASUVORK5CYII=\"},\".inner\":{\"visibility\":\"hidden\"},\"text\":{\"ref-y\":0.5},\".fobj\":{\"width\":70,\"height\":60},\"div\":{\"style\":{\"width\":70,\"height\":60},\"html\":\"Create Record Instance\"},\".fobj div\":{\"style\":{\"verticalAlign\":\"middle\",\"paddingTop\":0}},\".outer\":{\"stroke-width\":1,\"stroke-dasharray\":\"none\"},\".sub-process\":{\"d\":\"M 0 0 L 30 0 30 30 0 30 z M 15 4 L 15 26 M 4 15 L 26 15\",\"stroke\":\"#000000\",\"fill\":\"transparent\",\"transform\":\"scale(0.3, 0.3) translate(0, 6)\",\"display\":\"none\",\"visibility\":\"hidden\",\"data-sub-process\":\"\"},\".icon-multi-instance-sequential\":{\"width\":10,\"height\":10,\"y\":1,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACtJREFUeNpilJOTYaAEsADxf0oMYGKgEFBsAMgLjEPfC6OxMBoLFBsAEGAAje8DgZ8/t18AAAAASUVORK5CYII=\",\"display\":\"none\"},\".icon-multi-instance-parallel\":{\"width\":10,\"height\":10,\"y\":1,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACxJREFUeNpilJOT+c+AAIwPHz5mkJeXBbGJEmdioBCMGjBqwKgBg8UAgAADADERCXj6SL6VAAAAAElFTkSuQmCC\",\"display\":\"none\"},\".rx-icon-container\":{\"ref\":\".body\",\"x-alignment\":\"middle\",\"ref-x\":0.5,\"ref-dy\":-15}}},{\"type\":\"rx.SequenceFlow\",\"router\":{\"name\":\"manhattan\"},\"labels\":[{\"attrs\":{\"text\":{\"text\":\"\"}},\"position\":\"0.5\"}],\"flowType\":\"normal\",\"id\":\"c94794f7-46c5-4c9b-98e9-7aabcd613e76\",\"source\":{\"id\":\"d9640f1f-0f5f-414f-948f-ee62a49df9f4\"},\"target\":{\"id\":\"59f125e5-4e76-4133-9c4a-d7c21efc2875\"},\"z\":37,\"ownerProcessId\":\"rx-789e884d-3d38-4737-b7b5-2af824baebea\",\"attrs\":{}},{\"type\":\"rx.StartEvent\",\"size\":{\"width\":50,\"height\":50},\"eventType\":\"start\",\"position\":{\"x\":70,\"y\":440},\"angle\":0,\"id\":\"62bec0c4-db9e-4b17-9c93-905e036ef294\",\"z\":38,\"ownerProcessId\":\"rx-789e884d-3d38-4737-b7b5-2af824baebea\",\"attrs\":{\".label\":{\"text\":\"\"},\".inner\":{\"visibility\":\"hidden\"}}},{\"type\":\"rx.SequenceFlow\",\"router\":{\"name\":\"manhattan\"},\"labels\":[{\"attrs\":{\"text\":{\"text\":\"\"}},\"position\":\"0.5\"}],\"flowType\":\"normal\",\"id\":\"9aa6ba72-445e-4283-a140-7ea2b84c1ac6\",\"source\":{\"id\":\"62bec0c4-db9e-4b17-9c93-905e036ef294\"},\"target\":{\"id\":\"d9640f1f-0f5f-414f-948f-ee62a49df9f4\"},\"z\":39,\"ownerProcessId\":\"rx-789e884d-3d38-4737-b7b5-2af824baebea\",\"attrs\":{}},{\"type\":\"rx.EndEvent\",\"size\":{\"width\":50,\"height\":50},\"eventType\":\"end\",\"position\":{\"x\":550,\"y\":375},\"angle\":0,\"id\":\"d84d9806-a29a-424f-86d3-169b05badf49\",\"z\":40,\"ownerProcessId\":\"rx-789e884d-3d38-4737-b7b5-2af824baebea\",\"attrs\":{\".label\":{\"text\":\"\"},\".outer\":{\"stroke-width\":5},\".inner\":{\"visibility\":\"hidden\"}}},{\"type\":\"rx.SequenceFlow\",\"router\":{\"name\":\"manhattan\"},\"labels\":[{\"attrs\":{\"text\":{\"text\":\"\"}},\"position\":\"0.5\"}],\"flowType\":\"normal\",\"id\":\"ff567962-501b-49da-ba77-88842ec4de04\",\"source\":{\"id\":\"b842c669-8589-4a0f-84ef-e77fc28b355b\"},\"target\":{\"id\":\"d84d9806-a29a-424f-86d3-169b05badf49\"},\"z\":41,\"ownerProcessId\":\"rx-789e884d-3d38-4737-b7b5-2af824baebea\",\"attrs\":{}}]}"
+}

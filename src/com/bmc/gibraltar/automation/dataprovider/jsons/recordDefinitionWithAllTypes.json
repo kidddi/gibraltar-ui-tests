@@ -1,0 +1,169 @@
+{
+  "name": "task-manager:Record-WUM",
+  "description": null,
+  "fieldDefinitions": [
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Display ID",
+      "description": null,
+      "id": 1,
+      "fieldOption": "SYSTEM",
+      "maxLength": 15,
+      "defaultValue": ""
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Submitter",
+      "description": null,
+      "id": 2,
+      "fieldOption": "REQUIRED",
+      "maxLength": 254,
+      "defaultValue": "$USER$"
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.DateTimeFieldDefinition",
+      "name": "Submit Date",
+      "description": null,
+      "id": 3,
+      "fieldOption": "SYSTEM",
+      "defaultValue": null
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Assignee",
+      "description": null,
+      "id": 4,
+      "fieldOption": "OPTIONAL",
+      "maxLength": 254,
+      "defaultValue": null
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Last Modified By",
+      "description": null,
+      "id": 5,
+      "fieldOption": "SYSTEM",
+      "maxLength": 254,
+      "defaultValue": null
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.DateTimeFieldDefinition",
+      "name": "Last Modified Date",
+      "description": null,
+      "id": 6,
+      "fieldOption": "SYSTEM",
+      "defaultValue": null
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.SelectionFieldDefinition",
+      "name": "Status",
+      "description": null,
+      "id": 7,
+      "fieldOption": "REQUIRED",
+      "options": [
+        "New",
+        "Assigned",
+        "Fixed",
+        "Rejected",
+        "Closed"
+      ],
+      "displayType": null,
+      "defaultValue": "New"
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Description",
+      "description": null,
+      "id": 8,
+      "fieldOption": "REQUIRED",
+      "maxLength": 254,
+      "defaultValue": ""
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "ID",
+      "description": null,
+      "id": 179,
+      "fieldOption": "OPTIONAL",
+      "maxLength": 254,
+      "defaultValue": null
+    },
+    {
+      "name": "Test_Boolean",
+      "description": "null\n\n",
+      "fieldOption": "REQUIRED",
+      "defaultValue": "true",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.BooleanFieldDefinition"
+    },
+    {
+      "name": "Test_Date",
+      "description": "null\n\n",
+      "fieldOption": "REQUIRED",
+      "defaultValue": "2015-04-08",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.DateOnlyFieldDefinition"
+    },
+    {
+      "name": "Test_Date/Time",
+      "description": "null\n\n",
+      "fieldOption": "REQUIRED",
+      "defaultValue": "2014-01-01T12:23:00.000Z",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.DateTimeFieldDefinition"
+    },
+    {
+      "name": "Test_Integer",
+      "description": "null\n\n",
+      "fieldOption": "REQUIRED",
+      "defaultValue": 99,
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.IntegerFieldDefinition",
+      "minValue": null,
+      "maxValue": null
+    },
+    {
+      "name": "Test_Text",
+      "description": "null\n\n",
+      "fieldOption": "REQUIRED",
+      "defaultValue": "Some text",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "maxLength": 254
+    },
+    {
+      "name": "Test_Time",
+      "description": "null\n\n",
+      "fieldOption": "REQUIRED",
+      "defaultValue": "12:55:00",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.TimeOnlyFieldDefinition"
+    },
+    {
+      "name": "Test_Selection",
+      "description": "null\n\n",
+      "fieldOption": "REQUIRED",
+      "defaultValue": "opt",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.SelectionFieldDefinition",
+      "options": [
+        "opt",
+        "opt1",
+        "opt2"
+      ]
+    },
+    {
+      "name": "Test_Floating",
+      "description": "null\n\n",
+      "fieldOption": "REQUIRED",
+      "defaultValue": 6,
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.RealFieldDefinition",
+      "precision": 6,
+      "minValue": 0,
+      "maxValue": 150
+    },
+    {
+      "name": "Test_Decimal",
+      "description": "null\n\n",
+      "fieldOption": "REQUIRED",
+      "defaultValue": 30,
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.DecimalFieldDefinition",
+      "precision": 2,
+      "minValue": 0,
+      "maxValue": 500
+    }
+  ]
+}

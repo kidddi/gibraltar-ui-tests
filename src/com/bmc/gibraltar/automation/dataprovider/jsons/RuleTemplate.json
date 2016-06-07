@@ -1,0 +1,26 @@
+{
+  "name": "task-manager:UniqueNameShouldBeChanged",
+  "executionOrder": 0,
+  "isEnabled": true,
+  "trigger": {
+    "resourceType": "com.bmc.arsys.rx.services.rule.domain.Trigger",
+    "triggerTypes": [
+      "ON_CREATE"
+    ]
+  },
+  "recordDefinitionNames": [
+    "MesageTask"
+  ],
+  "actions": [
+    {
+      "resourceType": "com.bmc.arsys.rx.services.rule.domain.ShowMessageAction",
+      "messageText": "\"show message test\"",
+      "messageCode": 10000,
+      "messageType": "NOTE"
+    }
+  ],
+  "qualification": {
+    "expression": "${ruleContext.4} = $USER$ AND ${ruleContext.7} =\"Assigned\"",
+    "name": ""
+  }
+}

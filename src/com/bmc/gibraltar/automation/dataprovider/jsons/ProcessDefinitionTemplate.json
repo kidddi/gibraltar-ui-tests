@@ -1,0 +1,34 @@
+{
+  "name": "UniqueNameShouldBeChanged",
+  "id": "IDShouldBeGenerated",
+  "description": "This is a simple process with Start and Events",
+  "inputParams": [],
+  "permissions": [
+    {
+      "permittedGroup": "Process Designer",
+      "permissionType": "EXECUTE"
+    }
+  ],
+  "flowElements": [
+    {
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.StartEventDefinition",
+      "id": "StartIDShouldBeGenerated",
+      "name": "CreateTaskStart",
+      "description": "the starting point"
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.EndEventDefinition",
+      "id": "EndIDShouldBeGenerated",
+      "name": "CreateTaskEnd",
+      "description": "the end of the process"
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.SequenceFlowDefinition",
+      "id": "LinkIDShouldBeGenerated",
+      "name": "CreateTaskProcessFlowEnd",
+      "description": "between the start and the end events",
+      "sourceNode": "StartIDShouldBeGenerated",
+      "targetNode": "EndIDShouldBeGenerated"
+    }
+  ]
+}

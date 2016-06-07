@@ -1,0 +1,91 @@
+{
+  "name": "task-manager:New Process",
+  "id": "rx-970ddf3f-b1f0-4290-a87b-b87c480ae47c",
+  "description": "",
+  "runAsUser": false,
+  "isEnabled": true,
+  "inputParams": [
+    {
+      "name": "Boolean_test",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.BooleanFieldDefinition",
+      "description": "Helper Boolean_test\n",
+      "defaultValue": "true",
+      "fieldOption": "REQUIRED"
+    },
+    {
+      "name": "Date_test",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.DateOnlyFieldDefinition",
+      "description": "Helper Date_test\n",
+      "defaultValue": "2015-04-08",
+      "fieldOption": "REQUIRED"
+    },
+    {
+      "name": "Date/Time_test",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.DateTimeFieldDefinition",
+      "description": "Helper Date/Time_test\n",
+      "defaultValue": "2014-01-01T11:23:00.000Z",
+      "fieldOption": "REQUIRED"
+    },
+    {
+      "name": "Decimal_test",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.DecimalFieldDefinition",
+      "description": "Helper Decimal_test\n",
+      "defaultValue": -1.25,
+      "fieldOption": "REQUIRED"
+    },
+    {
+      "name": "Floating_test",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.RealFieldDefinition",
+      "description": "Helper Floating_test\n",
+      "defaultValue": 0.00025,
+      "fieldOption": "REQUIRED"
+    },
+    {
+      "name": "Integer_test",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.IntegerFieldDefinition",
+      "description": "Helper Integer_test\n",
+      "defaultValue": 99,
+      "fieldOption": "REQUIRED"
+    },
+    {
+      "name": "Text_test",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "description": "Helper Text_test\n",
+      "defaultValue": "Some text",
+      "fieldOption": "REQUIRED"
+    },
+    {
+      "name": "Time_test",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.TimeOnlyFieldDefinition",
+      "description": "Helper Time_test\n",
+      "defaultValue": "12:55:00",
+      "fieldOption": "REQUIRED"
+    }
+  ],
+  "outputParams": [],
+  "flowElements": [
+    {
+      "id": "rx-323dc0e6-2b6a-42d9-a755-a57888bcbc6e",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.StartEventDefinition",
+      "name": "Start",
+      "description": ""
+    },
+    {
+      "id": "rx-4304ea9f-5014-4d7b-9dd5-9eb710aaa85e",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.EndEventDefinition",
+      "name": "End",
+      "description": ""
+    },
+    {
+      "id": "rx-3210fd06-e735-43c5-9482-c5531e10a3d7",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.SequenceFlowDefinition",
+      "name": "Sequence Flow",
+      "description": "",
+      "sourceNode": "rx-323dc0e6-2b6a-42d9-a755-a57888bcbc6e",
+      "targetNode": "rx-4304ea9f-5014-4d7b-9dd5-9eb710aaa85e"
+    }
+  ],
+  "artifacts": [],
+  "layout": "{\"cells\":[{\"type\":\"rx.StartEvent\",\"size\":{\"width\":50,\"height\":50},\"eventType\":\"start\",\"position\":{\"x\":50,\"y\":375},\"angle\":0,\"id\":\"323dc0e6-2b6a-42d9-a755-a57888bcbc6e\",\"z\":1,\"ownerProcessId\":\"rx-970ddf3f-b1f0-4290-a87b-b87c480ae47c\",\"attrs\":{\".label\":{\"text\":\"\"},\".inner\":{\"visibility\":\"hidden\"}}},{\"type\":\"rx.EndEvent\",\"size\":{\"width\":50,\"height\":50},\"eventType\":\"end\",\"position\":{\"x\":900,\"y\":375},\"angle\":0,\"id\":\"4304ea9f-5014-4d7b-9dd5-9eb710aaa85e\",\"z\":2,\"ownerProcessId\":\"rx-970ddf3f-b1f0-4290-a87b-b87c480ae47c\",\"attrs\":{\".label\":{\"text\":\"\"},\".outer\":{\"stroke-width\":5},\".inner\":{\"visibility\":\"hidden\"}}},{\"type\":\"rx.SequenceFlow\",\"router\":{\"name\":\"manhattan\"},\"labels\":[{\"attrs\":{\"text\":{\"text\":\"\"}},\"position\":\"0.5\"}],\"flowType\":\"normal\",\"id\":\"3210fd06-e735-43c5-9482-c5531e10a3d7\",\"source\":{\"id\":\"323dc0e6-2b6a-42d9-a755-a57888bcbc6e\"},\"target\":{\"id\":\"4304ea9f-5014-4d7b-9dd5-9eb710aaa85e\"},\"z\":4,\"ownerProcessId\":\"rx-970ddf3f-b1f0-4290-a87b-b87c480ae47c\",\"attrs\":{}}]}",
+  "permissions": []
+}

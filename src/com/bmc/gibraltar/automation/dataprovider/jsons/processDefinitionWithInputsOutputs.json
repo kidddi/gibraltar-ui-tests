@@ -1,0 +1,79 @@
+{
+  "name": "task-manager:User Task Process",
+  "id": "rx-5478e6e3-998a-4f62-b349-746d2d6a37bf",
+  "description": "",
+  "runAsUser": false,
+  "isEnabled": true,
+  "inputParams": [
+    {
+      "name": "Input1",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "description": "\n",
+      "defaultValue": null,
+      "fieldOption": "REQUIRED"
+    }
+  ],
+  "outputParams": [
+    {
+      "name": "Output1",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "description": "\n",
+      "fieldOption": "OPTIONAL"
+    }
+  ],
+  "flowElements": [
+    {
+      "id": "rx-b3d8bfb7-1866-4a4f-b522-eec3ffba59ce",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.StartEventDefinition",
+      "name": "Start",
+      "description": ""
+    },
+    {
+      "id": "rx-617b34b6-c768-4ee9-8855-82548dbd4e11",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.EndEventDefinition",
+      "name": "End",
+      "description": ""
+    },
+    {
+      "id": "rx-9b5685c0-8863-486e-860a-0f8f6a6cc136",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.UserTaskDefinition",
+      "name": "User Task",
+      "description": "",
+      "recordDefinitionName": "task-manager:Task",
+      "recordInstanceId": "",
+      "completeTaskCondition": "${userTask.Status}=\"Completed\"",
+      "inputMap": [
+        {
+          "assignTarget": "Priority",
+          "expression": "\"High\""
+        },
+        {
+          "assignTarget": "Status",
+          "expression": "\"Work In Progress\""
+        }
+      ],
+      "outputMap": [],
+      "taskCancellationInputMap": [],
+      "multiInstanceLoopDefinition": null
+    },
+    {
+      "id": "rx-ecb1d2f5-8287-434e-a941-4d00290f7480",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.SequenceFlowDefinition",
+      "name": "Sequence Flow",
+      "description": "",
+      "sourceNode": "rx-b3d8bfb7-1866-4a4f-b522-eec3ffba59ce",
+      "targetNode": "rx-9b5685c0-8863-486e-860a-0f8f6a6cc136"
+    },
+    {
+      "id": "rx-c7b817a0-954b-4edd-b00a-1dbd3b7d0207",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.SequenceFlowDefinition",
+      "name": "Sequence Flow",
+      "description": "",
+      "sourceNode": "rx-9b5685c0-8863-486e-860a-0f8f6a6cc136",
+      "targetNode": "rx-617b34b6-c768-4ee9-8855-82548dbd4e11"
+    }
+  ],
+  "artifacts": [],
+  "layout": "{\"cells\":[{\"type\":\"rx.StartEvent\",\"size\":{\"width\":50,\"height\":50},\"eventType\":\"start\",\"position\":{\"x\":50,\"y\":375},\"angle\":0,\"id\":\"b3d8bfb7-1866-4a4f-b522-eec3ffba59ce\",\"z\":1,\"ownerProcessId\":\"rx-5478e6e3-998a-4f62-b349-746d2d6a37bf\",\"attrs\":{\".label\":{\"text\":\"\"},\".inner\":{\"visibility\":\"hidden\"}}},{\"type\":\"rx.EndEvent\",\"size\":{\"width\":50,\"height\":50},\"eventType\":\"end\",\"position\":{\"x\":900,\"y\":375},\"angle\":0,\"id\":\"617b34b6-c768-4ee9-8855-82548dbd4e11\",\"z\":2,\"ownerProcessId\":\"rx-5478e6e3-998a-4f62-b349-746d2d6a37bf\",\"attrs\":{\".label\":{\"text\":\"\"},\".outer\":{\"stroke-width\":5},\".inner\":{\"visibility\":\"hidden\"}}},{\"type\":\"rx.UserTask\",\"size\":{\"width\":70,\"height\":60},\"icon\":\"user\",\"content\":\"User Task\",\"activityType\":\"task\",\"subProcess\":null,\"position\":{\"x\":400,\"y\":400},\"angle\":0,\"id\":\"9b5685c0-8863-486e-860a-0f8f6a6cc136\",\"z\":4,\"ownerProcessId\":\"rx-5478e6e3-998a-4f62-b349-746d2d6a37bf\",\"attrs\":{\".icon\":{\"ref\":\".outer\",\"ref-dy\":\"\",\"ref-y\":5,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJdJREFUeNpiYCATMOKSMDY2dgBSAkB84OzZsx/Q5VlwaNoPpByg3AtAbEjQRqAmAyB1Hk04EGjrBmQBJiwWCmARM0AXYCIyLC4QFThA575Hs1kQPYCYcIQmsqIH2JzKiKQhAUjlY1OE5NyJQJsXwDUCNRUAqX4i/VsI1DwB5lR/EhKNPymhyoAr5SwE4oNE6nnAQAkACDAAoFcjem3Aa4gAAAAASUVORK5CYII=\"},\".inner\":{\"visibility\":\"hidden\"},\"text\":{\"ref-y\":0.5},\".fobj\":{\"width\":70,\"height\":60},\"div\":{\"style\":{\"width\":70,\"height\":60},\"html\":\"User Task\"},\".fobj div\":{\"style\":{\"verticalAlign\":\"middle\",\"paddingTop\":0}},\".outer\":{\"stroke-width\":1,\"stroke-dasharray\":\"none\"},\".sub-process\":{\"d\":\"M 0 0 L 30 0 30 30 0 30 z M 15 4 L 15 26 M 4 15 L 26 15\",\"stroke\":\"#000000\",\"fill\":\"transparent\",\"transform\":\"scale(0.3, 0.3) translate(0, 6)\",\"display\":\"none\",\"visibility\":\"hidden\",\"data-sub-process\":\"\"},\".icon-multi-instance-sequential\":{\"width\":10,\"height\":10,\"y\":1,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACtJREFUeNpilJOTYaAEsADxf0oMYGKgEFBsAMgLjEPfC6OxMBoLFBsAEGAAje8DgZ8/t18AAAAASUVORK5CYII=\",\"display\":\"none\"},\".icon-multi-instance-parallel\":{\"width\":10,\"height\":10,\"y\":1,\"xlink:href\":\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACxJREFUeNpilJOT+c+AAIwPHz5mkJeXBbGJEmdioBCMGjBqwKgBg8UAgAADADERCXj6SL6VAAAAAElFTkSuQmCC\",\"display\":\"none\"},\".rx-icon-container\":{\"ref\":\".body\",\"x-alignment\":\"middle\",\"ref-x\":0.5,\"ref-dy\":-15}}},{\"type\":\"rx.SequenceFlow\",\"router\":{\"name\":\"manhattan\"},\"labels\":[{\"attrs\":{\"text\":{\"text\":\"\"}},\"position\":\"0.5\"}],\"flowType\":\"normal\",\"id\":\"ecb1d2f5-8287-434e-a941-4d00290f7480\",\"source\":{\"id\":\"b3d8bfb7-1866-4a4f-b522-eec3ffba59ce\"},\"target\":{\"id\":\"9b5685c0-8863-486e-860a-0f8f6a6cc136\"},\"z\":5,\"ownerProcessId\":\"rx-5478e6e3-998a-4f62-b349-746d2d6a37bf\",\"attrs\":{}},{\"type\":\"rx.SequenceFlow\",\"router\":{\"name\":\"manhattan\"},\"labels\":[{\"attrs\":{\"text\":{\"text\":\"\"}},\"position\":\"0.5\"}],\"flowType\":\"normal\",\"id\":\"c7b817a0-954b-4edd-b00a-1dbd3b7d0207\",\"source\":{\"id\":\"9b5685c0-8863-486e-860a-0f8f6a6cc136\"},\"target\":{\"id\":\"617b34b6-c768-4ee9-8855-82548dbd4e11\"},\"z\":6,\"ownerProcessId\":\"rx-5478e6e3-998a-4f62-b349-746d2d6a37bf\",\"attrs\":{}}]}",
+  "permissions": []
+}

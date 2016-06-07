@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Business Logic UI Smoke Suite" configfailurepolicy="continue">
+    <listeners>
+        <listener class-name="com.bmc.gibraltar.automation.framework.listeners.CustomTestListener"/>
+    </listeners>
+    <test name="Permissions Smoke Tests" parallel="false" verbose="2">
+        <classes>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.permissions.LoginTest">
+                <methods>
+                    <include name="loginToTaskManager"/>
+                    <include name="verifyTabsNames"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Process Definition Smoke Tests" parallel="false" verbose="2">
+        <classes>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.definition.CreateTaskProcessTest">
+                <methods>
+                    <include name="startProcessWithCreateTaskElement"/>
+                    <include name="verifyTaskPresenceAndStatus"/>
+                </methods>
+            </class>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.definition.DeleteProcessDefinitionTest">
+                <methods>
+                    <include name="checkDeleteButtonState"/>
+                    <include name="processDefinitionCanHaveNameAsDeletedHad"/>
+                </methods>
+            </class>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.definition.ProcessDefinitionNameTest">
+                <methods>
+                    <include name="createProcessDefinitionsWithSpecialSymbols"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Process Designer Smoke Tests" parallel="false" verbose="2">
+        <classes>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.designer.DefaultDesignerViewTest">
+                <methods>
+                    <include name="verifyBladesAreExpandedAndOrderOfTabsInPalette"/>
+                    <include name="verifyDefaultProcessName"/>
+                    <include name="verifyNewWorkflowHasStartAndEndElementOnCanvas"/>
+                </methods>
+            </class>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.designer.StencilTest">
+                <methods>
+                    <include name="defaultStateOfSettingsTab"/>
+                    <include name="elementsPresenceInDefaultTab"/>
+                    <include name="groupsPresenceInDefaultTab"/>
+                    <include name="elementPresenceInSettingsTab"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Process Instance Viewer Smoke Tests" parallel="false" verbose="2">
+        <classes>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.instance.ProcessInstanceViewerTest">
+                <methods>
+                    <include name="validateInstanceViewerGeneralInfo"/>
+                    <include name="verifyProcessInstanceViewerPresent"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Record Designer Smoke Tests" parallel="false" verbose="2">
+        <classes>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.recorddesigner.DeleteRecordDefinitionTest">
+                <methods>
+                    <include name="abilityToDeleteRecordDefinition"/>
+                    <include name="addRecordWithSameNameAfterOnceWasDeleted"/>
+                    <include name="inabilityToDeleteProtectedRecords"/>
+                </methods>
+            </class>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.recorddesigner.DeleteRecordFieldsTest">
+                <methods>
+                    <include name="deleteRecordField"/>
+                </methods>
+            </class>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.recorddesigner.RecordFieldsTest">
+                <methods>
+                    <include name="addRecordFields"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Rule Designer Smoke Tests" parallel="false" verbose="2">
+        <classes>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.rule.action.RuleActionTest">
+                <methods>
+                    <include name="orderOfActionsOnCanvas"/>
+                </methods>
+            </class>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.rule.designer.RuleDesignerTests">
+                <methods>
+                    <include name="triggerElementCannotBeRemoved"/>
+                    <include name="firstGroupInStencilIsQualification"/>
+                    <include name="secondGroupInStencilIsPlatformActions"/>
+                    <include name="customActionGroupsSortedAlphabeticallyByServiceName"/>
+                    <include name="errorDisplayedIfRecordDefinitionForTriggerIsNotSpecified"/>
+                </methods>
+            </class>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.rule.TriggerElementTest">
+                <methods>
+                    <include name="triggerEventsOfTriggerElement"/>
+                </methods>
+            </class>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.rule.definition.ShowMessageRuleTest">
+                <methods>
+                    <include name="ruleWorkflowSameAfterSaving"/>
+                    <include name="ruleDefinitionWithShowMessageActionSaved"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Expression Builder Smoke Tests" parallel="false" verbose="2">
+        <classes>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.designer.DataDictionaryBasicTest">
+                <methods>
+                    <include name="verifyEditPropertyValueDialog"/>
+                </methods>
+            </class>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.process.designer.DataDictionaryAdvancedTest">
+                <methods>
+                    <include name="userTaskExpressionForCompletionCriteria"/>
+                    <include name="calledProcessIdFieldEditableInCallActivityProperties"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Multi Instance Smoke Tests" parallel="false" verbose="2">
+        <classes>
+            <class name="com.bmc.gibraltar.automation.tests.businesslogic.ui.element.ActivitiesElementsTest">
+                <methods>
+                    <include name="multiInstancePropertiesPresenceForAction"/>
+                    <include name="dictionaryEditorsForMultiInstanceProperties"/>
+                    <include name="verifyInputDataItemDropDown"/>
+                    <include name="cancelTaskInputMapOfMultiInstanceUserTask"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

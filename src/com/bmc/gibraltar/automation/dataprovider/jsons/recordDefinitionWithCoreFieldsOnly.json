@@ -1,0 +1,92 @@
+{
+  "name": "task-manager:Test Record",
+  "description": null,
+  "fieldDefinitions": [
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Display ID",
+      "description": null,
+      "id": 1,
+      "fieldOption": "SYSTEM",
+      "maxLength": 15,
+      "defaultValue": ""
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Submitter",
+      "description": null,
+      "id": 2,
+      "fieldOption": "REQUIRED",
+      "maxLength": 254,
+      "defaultValue": "$USER$"
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.DateTimeFieldDefinition",
+      "name": "Submit Date",
+      "description": null,
+      "id": 3,
+      "fieldOption": "SYSTEM",
+      "defaultValue": null
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Assignee",
+      "description": null,
+      "id": 4,
+      "fieldOption": "OPTIONAL",
+      "maxLength": 254,
+      "defaultValue": null
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Last Modified By",
+      "description": null,
+      "id": 5,
+      "fieldOption": "SYSTEM",
+      "maxLength": 254,
+      "defaultValue": null
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.DateTimeFieldDefinition",
+      "name": "Last Modified Date",
+      "description": null,
+      "id": 6,
+      "fieldOption": "SYSTEM",
+      "defaultValue": null
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.SelectionFieldDefinition",
+      "name": "Status",
+      "description": null,
+      "id": 7,
+      "fieldOption": "REQUIRED",
+      "options": [
+        "New",
+        "Assigned",
+        "Fixed",
+        "Rejected",
+        "Closed"
+      ],
+      "displayType": null,
+      "defaultValue": "New"
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Description",
+      "description": null,
+      "id": 8,
+      "fieldOption": "REQUIRED",
+      "maxLength": 254,
+      "defaultValue": ""
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "ID",
+      "description": null,
+      "id": 179,
+      "fieldOption": "OPTIONAL",
+      "maxLength": 254,
+      "defaultValue": null
+    }
+  ]
+}

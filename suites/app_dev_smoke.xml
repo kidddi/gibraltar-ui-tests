@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="App Dev UI Smoke Suite" configfailurepolicy="continue">
+    <listeners>
+        <listener class-name="com.bmc.gibraltar.automation.framework.listeners.CustomTestListener"/>
+    </listeners>
+    <test name="App Dev Smoke Tests" parallel="false" verbose="1">
+        <classes>
+            <class name="com.bmc.gibraltar.automation.tests.appdev.ui.ViewDesignerPaletteTest"/>
+        </classes>
+    </test>
+</suite>

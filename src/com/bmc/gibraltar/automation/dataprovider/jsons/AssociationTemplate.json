@@ -1,0 +1,16 @@
+{
+  "name": "APointToBPoint",
+  "description": "One to One",
+  "nodeAId": "APoint",
+  "nodeBId": "BPoint",
+  "nodeAToBName": "BPoint",
+  "nodeBToAName": "APoint",
+  "type": "COMPOSITION",
+  "cardinality": "ONE_TO_ONE",
+  "nodeAKeys": [
+    1
+  ],
+  "nodeBKeys": [
+    1
+  ]
+}

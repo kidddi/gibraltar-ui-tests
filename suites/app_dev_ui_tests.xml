@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="App Dev UI tests" configfailurepolicy="continue">
+    <listeners>
+        <listener class-name="com.bmc.gibraltar.automation.framework.listeners.CustomTestListener"/>
+    </listeners>
+
+    <test name="App Dev Tests" parallel="false" verbose="1">
+        <packages>
+            <package name="com.bmc.gibraltar.automation.tests.appdev.ui"/>
+        </packages>
+    </test>
+</suite>

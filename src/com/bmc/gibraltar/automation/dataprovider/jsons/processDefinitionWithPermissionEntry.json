@@ -1,0 +1,47 @@
+{
+  "name": "task-manager:Read",
+  "id": "rx-579787fb-c4b2-4a01-a876-f509c505e47f",
+  "description": "",
+  "runAsUser": false,
+  "isEnabled": true,
+  "inputParams": [
+    {
+      "name": "Text Input",
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "description": "",
+      "defaultValue": null,
+      "fieldOption": "REQUIRED"
+    }
+  ],
+  "outputParams": [],
+  "flowElements": [
+    {
+      "id": "rx-f51e939c-c497-444e-abbf-f2b9bbc4957f",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.StartEventDefinition",
+      "name": "Start",
+      "description": ""
+    },
+    {
+      "id": "rx-12844aaf-62d6-4ccb-992f-a9283569dce5",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.EndEventDefinition",
+      "name": "End",
+      "description": ""
+    },
+    {
+      "id": "rx-901c2f89-e591-4902-9f9f-f85d09319824",
+      "resourceType": "com.bmc.arsys.rx.services.process.domain.SequenceFlowDefinition",
+      "name": "Sequence Flow",
+      "description": "",
+      "sourceNode": "rx-f51e939c-c497-444e-abbf-f2b9bbc4957f",
+      "targetNode": "rx-12844aaf-62d6-4ccb-992f-a9283569dce5"
+    }
+  ],
+  "artifacts": [],
+  "layout": "{\"cells\":[{\"type\":\"rx.EndEvent\",\"size\":{\"width\":50,\"height\":50},\"eventType\":\"end\",\"position\":{\"x\":900,\"y\":375},\"angle\":0,\"id\":\"12844aaf-62d6-4ccb-992f-a9283569dce5\",\"z\":2,\"ownerProcessId\":\"rx-579787fb-c4b2-4a01-a876-f509c505e47f\",\"attrs\":{\".label\":{\"text\":\"\"},\".outer\":{\"stroke-width\":5},\".inner\":{\"visibility\":\"hidden\"}}},{\"type\":\"rx.StartEvent\",\"size\":{\"width\":50,\"height\":50},\"eventType\":\"start\",\"position\":{\"x\":140,\"y\":190},\"angle\":0,\"id\":\"f51e939c-c497-444e-abbf-f2b9bbc4957f\",\"z\":4,\"ownerProcessId\":\"rx-579787fb-c4b2-4a01-a876-f509c505e47f\",\"attrs\":{\".label\":{\"text\":\"\"},\".inner\":{\"visibility\":\"hidden\"}}},{\"type\":\"rx.SequenceFlow\",\"router\":{\"name\":\"manhattan\"},\"labels\":[{\"attrs\":{\"text\":{\"text\":\"\"}},\"position\":\"0.5\"}],\"flowType\":\"normal\",\"id\":\"901c2f89-e591-4902-9f9f-f85d09319824\",\"source\":{\"id\":\"f51e939c-c497-444e-abbf-f2b9bbc4957f\"},\"target\":{\"id\":\"12844aaf-62d6-4ccb-992f-a9283569dce5\"},\"z\":5,\"ownerProcessId\":\"rx-579787fb-c4b2-4a01-a876-f509c505e47f\",\"attrs\":{}}]}",
+  "permissions": [
+    {
+      "permittedGroup": "Process Manager Computed",
+      "permissionType": "READ"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "MesageTask",
+  "fieldDefinitions": [
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.CharacterFieldDefinition",
+      "name": "Name",
+      "maxLength": 255
+    },
+    {
+      "resourceType": "com.bmc.arsys.rx.standardlib.record.IntegerFieldDefinition",
+      "name": "Age"
+    }
+  ]
+}
