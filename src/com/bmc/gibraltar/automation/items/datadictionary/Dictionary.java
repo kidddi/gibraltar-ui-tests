@@ -248,7 +248,7 @@ public abstract class Dictionary extends Bindings implements Locators {
 
     /**
      * This method allows to click on the option inside the list in the Data Dictionary.
-     * <p/>
+     * <p>
      * For example,
      * we need to double-click on the 'Submitter' variable that is inside the 'Record Info' group,
      * and the 'Record Info' group is a sub-group in the {@mainGroup} (e.g. 'Process Variables')

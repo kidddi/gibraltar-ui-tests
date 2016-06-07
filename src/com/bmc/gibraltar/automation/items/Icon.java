@@ -10,7 +10,7 @@ import static java.lang.String.format;
 
 /**
  * Example:
- * <p/>
+ * <p>
  * Test sample:
  * Icon icon = procEditor.forIcon(infoIconLocator)
  * .verifyPresentOn(processInformationLocator)

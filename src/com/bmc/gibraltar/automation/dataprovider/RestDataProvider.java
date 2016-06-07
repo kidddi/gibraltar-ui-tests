@@ -145,7 +145,6 @@ public class RestDataProvider {
     }
 
     // TODO: Rewrite for all record definitions.
-
     /**
      * The method creates an association with name []To[] example createAssociation("A", "B") creates AToB association.
      *

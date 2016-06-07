@@ -69,12 +69,12 @@ public enum DictionaryGroup {
     public enum Legend {
         /**
          * Description from https://bmc.invisionapp.com/share/8W38GNQR4#/screens/84919085
-         * <p/>
+         * <p>
          * PROCESS_INPUT_PARAMETER - var, created by adding an Input parameter in the Process
          * PROCESS_OUTPUT_PARAMETER - var, created by adding an Output parameter in the Process
          * OUTPUT_MAP_VARIABLE - existed "Output" variable, is located in some elements (Activity type)
          * KEYWORD - existed default variables from "GENERAL" group
-         * <p/>
+         * <p>
          * Examples:  dd.doubleClick{Legend.PROCESS_INPUT_PARAMETER, "aaa"); dd.dragAndDrop{Legend.PROCESS_OUTPUT_PARAMETER, "aaa");
          */
         PROCESS_INPUT_PARAMETER("icon __icon-arrow_right_square_input"),
