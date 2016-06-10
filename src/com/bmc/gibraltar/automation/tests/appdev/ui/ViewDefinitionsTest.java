@@ -21,6 +21,8 @@ import java.util.stream.IntStream;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class ViewDefinitionsTest extends AppManagerBaseTest {
     private ViewDefinitionsPage viewDefinitionsPage;

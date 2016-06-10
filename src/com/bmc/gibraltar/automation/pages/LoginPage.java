@@ -1,11 +1,13 @@
 package com.bmc.gibraltar.automation.pages;
 
 import com.bmc.gibraltar.automation.items.Application;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import ru.yandex.qatools.allure.annotations.Step;
 
 public class LoginPage extends BasePage {
     public static String loginPageTitle = "xpath=//div[@class='login']";
+    protected final Logger log = Logger.getLogger(getClass());
     public String fldUserName = "xpath=//input[@placeholder='User Name']";
     public String fldUserPass = "xpath=//input[@placeholder='Password']";
     public String btnLogIn = "xpath=//form[@name='loginForm']//button";
@@ -60,7 +62,8 @@ public class LoginPage extends BasePage {
         getElement(fldUserPass).clear();
         getElement(fldUserPass).sendKeys(password);
         verifyTrue(getAttr(btnLogIn, "disabled") == null);
-        click(btnLogIn, 5);
+        click(btnLogIn);
+
     }
 
     @Step

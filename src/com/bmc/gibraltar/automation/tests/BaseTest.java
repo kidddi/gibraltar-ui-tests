@@ -18,7 +18,6 @@ public class BaseTest extends Bindings implements RuntimeDescription, CommonHand
      * Test description - used for data-driven tests to provide a unique description
      */
     protected String testDescription = null;
-
     /**
      * Starts WebDriver.
      */

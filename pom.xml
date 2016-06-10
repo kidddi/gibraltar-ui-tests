@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,24 +15,37 @@
 
         <!-- Dependencies versions -->
         <jsonpath.version>2.0.0</jsonpath.version>
+        <testng.version>6.9.8</testng.version>
         <jsonassert.version>1.2.3</jsonassert.version>
         <restassured.version>2.4.0</restassured.version>
         <jsonsimple.version>1.1</jsonsimple.version>
         <json.version>20141113</json.version>
         <aspectj.version>1.8.3</aspectj.version>
-        <ashot.version>1.5.</ashot.version>
+        <ashot.version>1.5.2</ashot.version>
+        <allure.version>1.4.23</allure.version>
     </properties>
 
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>com.bmc.gibraltar.automation</groupId>
             <artifactId>gibraltar-ui-framework</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>ru.yandex.qatools.ashot</groupId>
             <artifactId>ashot</artifactId>
             <version>${ashot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.yandex.qatools.allure</groupId>
+            <artifactId>allure-java-annotations</artifactId>
+            <version>${allure.version}</version>
         </dependency>
         <dependency>
             <groupId>org.skyscreamer</groupId>
@@ -53,6 +67,13 @@
             <artifactId>json-path</artifactId>
             <version>${jsonpath.version}</version>
         </dependency>
+        <!-- http://mvnrepository.com/artifact/com.jayway.awaitility/awaitility -->
+        <dependency>
+            <groupId>com.jayway.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
@@ -62,6 +83,11 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>${json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
         </dependency>
     </dependencies>
 

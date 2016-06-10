@@ -36,6 +36,7 @@ public abstract class BasePage extends Bindings implements Locators {
     private String declineChoiceOnDialog = "//button[.='Cancel' or .='No']";
     private String columnHeaderText = "xpath=//div[contains(@class, 'ngHeaderText ng-binding colt')]";
 
+
     protected BasePage(WebDriver driver) {
         wd = driver;
         PageFactory.initElements(driver, this);
