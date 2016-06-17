@@ -110,4 +110,11 @@ public class Bindings {
         return getElements(text).stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
+    protected String getTestDescription() {
+
+        String testGescripton = null;
+
+        return testGescripton;
+    }
+
 }

@@ -233,7 +233,7 @@ public abstract class BasePage extends Bindings implements Locators {
     }
 
     public List<String> getAllErrorMessages() {
-        return getElements(errorMessage).stream().map(WebElement::getText).collect(Collectors.toList());
+        return getElements(errorMessage).stream().map(e -> e.getText()).collect(Collectors.toList());
     }
 
     public String getValue(String locator) {
@@ -301,7 +301,7 @@ public abstract class BasePage extends Bindings implements Locators {
         for (String var : dropDownList) {
             String temp = "";
             for (Character button : var.toCharArray()) {
-                typeKeys(locator, "" + button, false, false);
+                typeKeys(locator, "" + button);
                 temp += button;
                 final String expSequence = temp;
                 List<String> expected = dropDownList.stream().filter(s ->

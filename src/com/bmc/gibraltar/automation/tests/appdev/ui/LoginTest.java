@@ -22,12 +22,18 @@ public class LoginTest extends BaseTest {
     @Stories("US204778, US204352")
     public void verifyUserHasAccessToApplicationManager(String email, String password, String[] permittedGroups) {
         RestDataProvider dataProvider = new RestDataProvider("jonnie@pepsi.com", "password");
+
         dataProvider.createUser(email + " Test User", email, password, email, permittedGroups);
         List<String> userGroups = dataProvider.getUserGroups(email, "groups");
+
         ApplicationManagerHomePage appManager = new ApplicationManagerHomePage(wd);
+
         LoginPage loginPage = new LoginPage(wd, Application.APPLICATION_MANAGER).navigateToPage();
+
         assertThat("User groups are not the same.", userGroups, hasItems(permittedGroups));
+
         loginPage.login(email, password);
+
         if (!(userGroups.contains("Struct Admin") || userGroups.contains("Administrator"))) {
             appManager.verifyUserHasNoAccessToAppManager();
             loginPage.closeAllErrorAlerts();
